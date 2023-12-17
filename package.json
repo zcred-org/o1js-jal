@@ -17,7 +17,7 @@
   "scripts": {
     "test": "npx tsm ./node_modules/uvu/bin.js ./test",
     "build": "rm -r dist & tsc -p tsconfig.build.json",
-    "publish": "npm run build && npm run publish"
+    "publish": "npm run build && npm publish"
   },
   "files": [
     "./dist"
