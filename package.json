@@ -1,6 +1,6 @@
 {
   "name": "o1js-jal",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "o1js JAL implementation",
   "license": "(Apache-2.0 AND MIT)",
   "repository": {
@@ -24,8 +24,8 @@
   ],
   "dependencies": {
     "mustache": "^4.2.0",
-    "o1js": "^0.15.0",
-    "o1js-trgraph": "^1.0.2",
+    "o1js": "0.15.0",
+    "o1js-trgraph": "1.0.3",
     "sort-keys": "^5.0.0"
   },
   "devDependencies": {

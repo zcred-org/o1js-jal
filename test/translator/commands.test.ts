@@ -161,7 +161,7 @@ test("translate ternary function", () => {
     {
       verifySign: {
         in: [
-          "pasta",
+          "mina:pasta",
           { type: "static", value: "345...345", transLinks: ["base58-mina:signature"] },
           { type: "static", value: 3, transLinks: ["uint64-mina:field"] },
           { type: "static", value: "123...123", transLinks: ["base58-mina:publickey"] }
@@ -180,7 +180,7 @@ test("translate hash function", () => {
     {
       hash: {
         in: [
-          "poseidon",
+          "mina:poseidon",
           { type: "static", value: 3, transLinks: ["uint64-mina:field"] },
           { type: "static", value: 1, transLinks: ["uint128-mina:field"] }
         ],

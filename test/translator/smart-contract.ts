@@ -16,10 +16,6 @@ test.before.each(async () => {
   randomPath = new URL(`./test/translator/${randomUUID()}.js`, ROOT_DIR);
 });
 
-test.after.each(async () => {
-  unlinkSync(randomPath);
-});
-
 test("Test", async () => {
   const translated = translateSmartContract({
     inputSchema: {
@@ -56,6 +52,7 @@ test("Test", async () => {
   const { ZkSmartContract } = await import(randomPath.href);
   a.is(typeof ZkSmartContract, "function");
   a.instance(ZkSmartContract.prototype, SmartContract);
+  unlinkSync(randomPath);
 });
 
 test.run();

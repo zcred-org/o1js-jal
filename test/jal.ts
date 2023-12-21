@@ -183,7 +183,7 @@ test("zk program", async () => {
       },
       {
         hash: {
-          in: ["poseidon",
+          in: ["mina:poseidon",
             { type: "reference", path: ["private", "credential", "attributes", "issuanceDate"] },
             { type: "reference", path: ["private", "credential", "attributes", "subject", "birthDate"] },
             {
@@ -208,7 +208,7 @@ test("zk program", async () => {
       },
       {
         verifySign: {
-          in: ["pasta", {
+          in: ["mina:pasta", {
             type: "reference", path: [
               "private", "credential", "proofs", "mina:poseidon-pasta",
               "mina:publickey:B62qj2aocCw3Ub1BnQXhUj1omS7dmVEvC3z8dsL2MkLcrw1cUgD3Apo", "signature"]
@@ -239,6 +239,7 @@ test("zk program", async () => {
   const proof: Proof<any, void> = await zkProgram.execute(new PublicInput(publicInput), ...privateInput);
   const verified = await verify(proof.toJSON(), verificationKey);
   a.is(verified, true);
+  unlinkSync(randomPath);
 });
 
 test("smart contract", async () => {
@@ -334,7 +335,7 @@ test("smart contract", async () => {
       {
         hash: {
           in: [
-            "poseidon",
+            "mina:poseidon",
             { type: "reference", path: ["private", "credential", "attributes", "issuanceDate"] },
             { type: "reference", path: ["private", "credential", "attributes", "subject", "birthDate"] },
             {
@@ -363,7 +364,7 @@ test("smart contract", async () => {
       {
         verifySign: {
           in: [
-            "pasta",
+            "mina:pasta",
             {
               type: "reference",
               path: ["private", "credential", "proofs", "mina:poseidon-pasta",
@@ -408,6 +409,7 @@ test("smart contract", async () => {
     publicInput: null
   }>(inputSetup);
   await zkApp.execute(...privateInput);
+  unlinkSync(randomPath);
   // Mina.transaction(senderAccount, () => {
   // });
   // await txn.prove();

@@ -16,10 +16,6 @@ test.before.each(() => {
   randomPath = new URL(`./test/translator/${randomUUID()}.js`, ROOT_DIR);
 });
 
-test.after.each(() => {
-  unlinkSync(randomPath);
-});
-
 test("", async () => {
   const inputSchema: InputSchema = {
     private: {
@@ -75,6 +71,7 @@ test("", async () => {
   a.is(typeof PublicInput, "function");
   a.is(typeof zkProgram.compile, "function");
   a.is(typeof zkProgram.execute, "function");
+  unlinkSync(randomPath);
 });
 
 test.run();
