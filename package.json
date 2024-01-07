@@ -1,6 +1,6 @@
 {
   "name": "o1js-jal",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "o1js JAL implementation",
   "license": "(Apache-2.0 AND MIT)",
   "repository": {
@@ -14,6 +14,7 @@
     "o1js"
   ],
   "type": "module",
+  "sideEffects": false,
   "scripts": {
     "test": "npx tsm ./node_modules/uvu/bin.js ./test",
     "build": "rm -r dist & tsc -p tsconfig.build.json",
@@ -38,7 +39,7 @@
   "typesVersions": {
     "*": {
       "*": [
-        "dist/index.d.t"
+        "dist/index.d.ts"
       ]
     }
   },
