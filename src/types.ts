@@ -149,25 +149,9 @@ export type InputSchemaValue<TLink extends string = string> =
   | Variable<TLink>
   | { [key: string]: InputSchemaValue<TLink> }
 
-export type InputSchemaContext<TLink extends string = string> = {
-  general?: {
-    timestamp?: Variable<TLink>; // UNIX timestamp
-    timestampU19?: Variable<TLink> // UNIX 19 timestamp
-    now?: Variable<TLink>;
-    nuwU19?: Variable<TLink>;
-  },
-  mina?: { // mina context
-    smartContract?: {
-      state?: InputSchemaValue<TLink>;
-    }
-  }
-}
-
 export type InputSchema<TLink extends string = string> = {
   private: InputSchemaValue<TLink>;
-  public?: {
-    context?: InputSchemaContext;
-  } & InputSchemaValue<TLink>;
+  public?: InputSchemaValue<TLink>;
 }
 
 export type Program<
